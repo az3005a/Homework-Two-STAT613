@@ -1,0 +1,38 @@
+---
+title: "STAT 612 Homework Two Problem One"
+author: "Alexander Zakrzeski"
+date: "5/29/2021"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(gapminder)
+```
+
+## Question One
+
+```{r}
+data = gapminder
+gapminder1 = data%>%
+  filter(year == 1997, continent == "Americas")%>%
+  arrange(desc(lifeExp))%>%
+  mutate(logpop = log(pop))
+
+ggplot(data = gapminder1, mapping = aes( x = lifeExp, y = country, 
+                                         fill = country)) +
+geom_bar(stat = "identity")
+```
+
+
+
+
+
+
+
+
+
+
+
+
